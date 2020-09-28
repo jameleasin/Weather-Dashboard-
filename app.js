@@ -35,9 +35,30 @@ function initPage() {
                 var weatherPic = response.data.weather[0].icon;
                 currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
                 currentPicEl.setAttribute("alt", response.data.weather[0].description);
-                currentTempEl.innerHTML = "Temperature:" + k2f(response.data.main.temp) + '&#176C';
+                currentTempEl.innerHTML = "Temperature:" + (response.data.main.temp) + '&#176C';
                 currentHumidityEl.innerHTML = "Humidity:" + response.data.main.humidity + '%';
                 currentWindEl.innerHTML - "Wind Speed:" + response.data.main.wind.speed + "KMPH";
+                //DOM to get lat and long
+                var lat = response.data.coord.lat;
+                var lon = response.data.coord.lon;
+                //retrieving UV index from API, creates a span element to put the UV index into and appends the current UVIndex to the UVIndex HTML
+                var UVQueryURL = "https://api.openweathermap.org/data/2.5/forcast?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey + "&cnt=1";
+                axios.get(UVQueryURL)
+                    .then(function(response) {
+                        let UVIndex = document.createElement("span");
+                        UVIndex.setAttribute("class", "badge badge-danger");
+                        currentUVEl.innerHTML = "UV Index: ";
+                        currentUVEl.append(UVIndex);
+                    });
+                var cityID = response.data.id;
+                var forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityID + "&appid=" + APIkey;
+                axios.get(forecastQueryURL)
+                    .then(function(response) {
+                        var forecastEls = document.querySelectorAll(".forecast");
+                        //for loop to loop through forecast for 5 days
+                        for
+                    })
+
 
             })
     }

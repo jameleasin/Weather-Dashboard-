@@ -56,7 +56,28 @@ function initPage() {
                     .then(function(response) {
                         var forecastEls = document.querySelectorAll(".forecast");
                         //for loop to loop through forecast for 5 days
-                        for
+                        for (i = 0; i < forecastEls.length; i++) {
+                            forecastEls[i].innerHTML = "";
+                            var forecastIndex = i * 8 + 4;
+                            var forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
+                            var forecastDay = forecastDate.getDate();
+                            var forecastMonth = forecastDate.getMonth();
+                            var forecastYear = forecastDate.getFullYear();
+                            var forecastDateEl = document.createElement("p");
+                            forecastDateEl.setAttribute("class", "mt-3 mb-0 forecast-date");
+                            forecastDateEl.innerHTML = forecastDay + "/" + forecastMonth + "/" + forecastYear;
+                            forecastEls[i].append(forecastDateEl);
+                            var forecastWeatherEl = document.createElement("img");
+                            forecastWeatherEl.setAttribute("src", "https://openweathermap.org/img/wn" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
+                            forecastWeatherEl.setAttribute("alt", response.data.list[forecastIndex].weather[0].desciption);
+                            forecastEls[i].append(forecastWeatherEl);
+                            var forecastTempEl = document.createElement("p");
+                            forecastTempEl.innerHTML = "Temp: " + (response.data.list[forecastIndex].main.temp) + "&#176C";
+                            forecastEls[i].append(forecastTempEl);
+                            var forecastHumidity = document.createElement("p");
+                            forecastHumidityEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
+                            forecastEls[i].append(forecastHumidityEl);
+                        }
                     })
 
 

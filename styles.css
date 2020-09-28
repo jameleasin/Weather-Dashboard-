@@ -11,6 +11,7 @@ body {
 
 input {
     width: 75%;
+    padding: 10px 10px;
 }
 
 #city-list {

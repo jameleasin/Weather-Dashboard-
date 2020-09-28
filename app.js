@@ -79,8 +79,39 @@ function initPage() {
                             forecastEls[i].append(forecastHumidityEl);
                         }
                     })
-
-
-            })
+            });
     }
+    //on click events for search button
+    searchEl.addEventListener("click", function() {
+            var searchTerm = inputEl.value;
+            getWeather(searchTerm);
+            searchHistory.push(searchItem);
+            localStorage.setItem("search", JSON.stringify(searchHistory));
+            renderSearchHistory();
+        })
+        //on click event for clearing search history
+    clearEl.addEventListener("click", function() {
+            searchHistory = [];
+            renderSeachHistory();
+        })
+        //renders search history
+    function renderSearchHistory() {
+        historyEl.innerHTML = "";
+        for (var i; i < searchHistory.length; i++) {
+            var historyItem = document.createElement("input");
+            historyItem.setAttribute("type", "text");
+            historyItem.setAttribute("readonly", true);
+            historyItem.setAttribute("class", "form-control d-block bg-white");
+            historyItemm.setAttribute("value", searchHistory[i]);
+            historyItem.addEventListener("click", function() {
+                getWeather(historyItem.value);
+            })
+            history.append(historyItem);
+        }
+    }
+    renderSearchHistory();
+    if (searchHistory.length > 0) {
+        getWeather(searchHistory[searchHistory.length - 1]);
+    }
+    initPage();
 }

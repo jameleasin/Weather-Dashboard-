@@ -16,6 +16,6 @@ function initPage() {
     console.log(searchHistory);
 
     //personal API key for Open Weather API
-    var APIkey = "";
+    var APIkey = "5d24139cd3087b3e091640cbcdec7262";
 
 }

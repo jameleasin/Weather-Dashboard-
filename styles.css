@@ -2,44 +2,20 @@ body {
     font-family: "Open Sans", sans-serif;
 }
 
-.heading {
-    background-color: #3c3c3c;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px;
+navbar-branb {
+    font-size: 36px;
 }
 
-input {
-    width: 75%;
-    padding: 10px 10px;
-}
-
-#city-list {
-    width: 22rem;
-}
-
-#city-date-icon,
-#city-name,
-#current-icon {
-    display: flex;
-    flex-direction: row;
-    justify-content: center/space-around/space-between;
-}
-
-h6 {
+.search-header {
+    font-size: 24px;
     font-weight: bold;
 }
 
-h4 {
-    margin: 5px;
+.city-name {
+    font-size: 30px;
 }
 
-#forecast-cards {
-    display: flex;
-    flex-direction: row;
-    justify-content: center/space-between;
-}
-
-.forecast {
+.forecast-date {
     margin: 10px;
+    font-size: 18px;
 }

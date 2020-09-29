@@ -41,7 +41,7 @@ function initPage() {
                 currentWindEl.innerHTML = "Wind Speed: " + response.wind.speed + " MPH";
                 let lat = response.coord.lat;
                 let lon = response.coord.lon;
-                let UVQueryURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&cnt=1";
+                let UVQueryURL = "http://api.openweathermap.org/data/2.5/uvi?" + "&lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&cnt=1";
                 $.ajax({
                         url: UVQueryURL,
                         type: "GET"

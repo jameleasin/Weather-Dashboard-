@@ -5,3 +5,6 @@ This web application uses Jquery, javascript and the open weather API to create 
 <br />
 The user is able to type in a city name in the input text area, once the search button is clicked the API is called upon and the current weather for that city on the day the user has inputed the city will display along with the 5 day forecast for that particular city.
 <br />
+The user is able to see the previous inputs of city names and click on these to display the current weather and 5 day forecast.
+<br />
+Deploy application here: https://jameleasin.github.io/Weather-Dashboard-/
